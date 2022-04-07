@@ -1,0 +1,12 @@
+.week {
+    width: 80%;
+}
+
+.week h2 {
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    line-height: 2rem;
+}

@@ -1,0 +1,29 @@
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.temperature {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin: 0 15px;
+}
+
+.temperature svg {
+    margin-right: 10px;
+}
+
+.description {
+    font-size: 0.8rem;
+    width: 100px;
+    text-align: right;
+}
