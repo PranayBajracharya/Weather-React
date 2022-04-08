@@ -6,3 +6,9 @@
     align-self: center;
 }
 
+.loading {
+    font-size: 2rem;
+    align-self: center;
+    margin-top: 2rem;
+    color: #282c34;
+}

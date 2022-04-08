@@ -6,6 +6,8 @@ import Header from "./components/Header/Header.js";
 import Main from "./components/Main/Main.js";
 import Week from "./components/Week/Week.js";
 
+import api from "./api/api.json";
+
 function App() {
     const [temperatureType, setTemperatureType] = useState("C");
     
@@ -13,9 +15,7 @@ function App() {
     const [isLoading, setIsLoading] = useState(true);
 
     const weatherDataFunc = useCallback(async () => {
-        let response = await fetch(
-            "https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,alerts&lat=27.7172&lon=85.3240&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36"
-        );
+        let response = await fetch(api.kathmandu);
         response = await response.json();
         setWeatherData(response);
         setIsLoading(false);
@@ -31,9 +31,8 @@ function App() {
             <Header
                 temperatureType={temperatureType}
                 setTemperatureType={setTemperatureType}
-                // dispatchTodayState={dispatchTodayState}
             />
-            {isLoading ? <p>Loading...</p> :
+            {isLoading ? <h2 className={classes.loading}>Loading...</h2> :
                 <main className={classes.main}>
                     <Main
                         temperatureType={temperatureType}
