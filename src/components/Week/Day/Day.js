@@ -9,16 +9,17 @@ import {
 } from "react-icons/ti";
 
 const Day = (props) => {
-    let icon;
-    const desc = props.data.details;
 
-    if(desc.includes("rain")) {
+    let icon;
+    const desc = props.data.main;
+
+    if(desc === "Rain") {
         icon = <TiWeatherShower />;
-    } else if(desc.includes("sunny")) {
+    } else if(desc === "Sunny") {
         icon = <TiWeatherSunny />;
-    } else if(desc.includes("cloudy")) {
+    } else if(desc.includes("Clouds")) {
         icon = <TiWeatherCloudy />;
-    } else if(desc.includes("stormy")) {
+    } else if(desc.includes("Stormy")) {
         icon = <TiWeatherStormy />;
     } else {
         icon = <TiWeatherPartlySunny />
@@ -30,9 +31,9 @@ const Day = (props) => {
             <div className={classes.details}>
                 <div className={classes.temperature}>
                     {icon}
-                    <span>{props.data.temperature}</span>
+                    <span>{`${props.data.max} / ${props.data.min} °${props.temperatureType}`}</span>
                 </div>
-                <div className={classes.description}>{props.data.details}</div>
+                <div className={classes.description}>{props.data.description}</div>
             </div>
         </li>
     );

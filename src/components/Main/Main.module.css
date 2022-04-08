@@ -5,6 +5,10 @@
     width: 50%;
 }
 
+.date {
+    display: block;
+}
+
 .city {
     font-size: 2rem;
     margin-bottom: 20px;
