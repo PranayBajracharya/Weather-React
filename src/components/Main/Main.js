@@ -15,7 +15,7 @@ const Main = (props) => {
         temperature: `${Math.round(props.weatherData.temp - 273.15)}`,
         dewPoint: `${Math.round(props.weatherData.dew_point - 273.15)}`,
         humidity: `${Math.round(props.weatherData.humidity)}%`,
-        visibility: `${props.weatherData.visibility}`,
+        visibility: `${props.weatherData.visibility/1000}km`,
         icon: <TiWeatherCloudy />,
     }
 
