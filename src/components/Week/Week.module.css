@@ -1,5 +1,5 @@
 .week {
-    width: 80%;
+    width: 60%;
 }
 
 .week h2 {
@@ -9,4 +9,15 @@
 ul {
     list-style: none;
     line-height: 2rem;
+}
+
+@media screen and (max-width: 860px) {
+    .week {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .week {
+        width: 100%;
+    }
 }

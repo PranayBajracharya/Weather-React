@@ -3,6 +3,7 @@ li {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 40px;
 }
 
 .details {
@@ -26,4 +27,5 @@ li {
     font-size: 0.8rem;
     width: 100px;
     text-align: right;
+    line-height: 1rem;
 }

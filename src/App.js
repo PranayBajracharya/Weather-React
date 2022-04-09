@@ -10,21 +10,21 @@ import api from "./api/api.json";
 
 function App() {
     const [temperatureType, setTemperatureType] = useState("C");
-
     const [weatherData, setWeatherData] = useState([]);
+    const [city, setCity] = useState("Kathmandu");
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
 
     const weatherDataFunc = useCallback(async () => {
         try {
-            let response = await fetch(api.kathmandu);
+            let response = await fetch(api[city]);
             response = await response.json();
             setWeatherData(response);
         } catch (error) {
             setError(true);
         }
         setIsLoading(false);
-    }, []);
+    }, [city]);
 
     useEffect(() => {
         weatherDataFunc();
@@ -45,7 +45,8 @@ function App() {
                     <Main
                         temperatureType={temperatureType}
                         weatherData={weatherData.current}
-                        city={weatherData.timezone}
+                        city={city}
+                        setCity={setCity}
                     />
                     <Week
                         temperatureType={temperatureType}
