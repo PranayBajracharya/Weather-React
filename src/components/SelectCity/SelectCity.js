@@ -2,7 +2,6 @@ import classes from "./SelectCity.module.css";
 
 const SelectCity = (props) => {
     const changeCityHandler = (event) => {
-        console.log(event.target.value);
         props.setCity(event.target.value);
     };
 

@@ -9,7 +9,6 @@ const Header = (props) => {
     }
     const temperatureTypeHandler = () => {
         props.setTemperatureType(changedTemperatureType);
-        // props.dispatchTodayState(changedTemperatureType);
     };
 
     return (

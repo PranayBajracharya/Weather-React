@@ -5,6 +5,9 @@ import {
     TiWeatherStormy,
     TiWeatherPartlySunny,
 } from "react-icons/ti";
+import { 
+    BsCloudHaze1,
+} from "react-icons/bs";
 
 const weatherIcon = (desc) => {
     let icon;
@@ -12,6 +15,8 @@ const weatherIcon = (desc) => {
         icon = <TiWeatherShower />;
     } else if(desc === "Clear") {
         icon = <TiWeatherSunny />;
+    } else if(desc === "Haze") {
+        icon = <BsCloudHaze1 />;
     } else if(desc === "Clouds") {
         icon = <TiWeatherCloudy />;
     } else if(desc === "Stormy") {
