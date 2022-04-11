@@ -38,18 +38,13 @@ function App() {
         const { current, daily } = weatherData;
         const currentData = convert(current, temperatureType);
 
-        console.log("asda", daily)
         const weekData = daily.map((dailyData, index) => {
-            // console.log(temperatureType, weatherData)
-            // console.log(dailyData, index);
             const date = new Date();
             date.setDate(date.getDate() + index);
-
-            // const convertedDailyData = convert(dailyData, temperatureType);
-            // convertedDailyData.date = date.toString().substring(0, 10);
-            // console.log(weatherData.daily)
-            // return convertedDailyData;
-            return dailyData;
+            
+            const convertedDailyData = convert(dailyData, temperatureType);
+            convertedDailyData.date = date.toString().substring(0, 10);
+            return convertedDailyData;
         })
         
         mainContent = (
@@ -62,7 +57,7 @@ function App() {
                 />
                 <Week
                     temperatureType={temperatureType}
-                    weeklyData={weatherData.daily}
+                    weekData={weekData}
                 />
             </Flex>
         );
@@ -73,7 +68,7 @@ function App() {
     } else if (isLoading) {
         mainContent = (
             <Center>
-                <Spinner color="#282c34" my={2} size='xl' thickness='4px' speed='0.2s'/>
+                <Spinner color="#282c34" my={3} size='xl' thickness='4px' speed='0.2s'/>
             </Center>
         );
     }

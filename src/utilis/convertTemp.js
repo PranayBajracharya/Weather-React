@@ -5,16 +5,14 @@ function kToF(K) {
 }
 
 function kToC(K) {
-    // console.log(K)
     const C = K - 273.15;
     return Math.round(C);
 }
 
 const convert = (data, tempType) => {
     const convertedData = {
-        ...data,
+        ...data
     };
-    // console.log(data);
 
     if (typeof(data.temp) === 'number') { // for current and hourly data
         if (tempType === "C") {
@@ -26,11 +24,15 @@ const convert = (data, tempType) => {
         }
     } else if(typeof(data.temp) === 'object') { // for daily data
         if (tempType === "C") {
-            convertedData.temp.min = kToC(data.temp.min);
-            convertedData.temp.max = kToC(data.temp.max);
+            convertedData.temp = {
+                min: kToC(data.temp.min),
+                max: kToC(data.temp.max)
+            }
         } else if (tempType === "F") {
-            convertedData.temp.min = kToF(data.temp.min);
-            convertedData.temp.max = kToF(data.temp.max);
+            convertedData.temp = {
+                min: kToF(data.temp.min),
+                max: kToF(data.temp.max)
+            }
         }
     }
     return convertedData;
