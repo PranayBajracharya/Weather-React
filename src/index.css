@@ -4,14 +4,16 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #282c34;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
         "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: white;
-    background-color: #ddd;
 }
 
 code {
@@ -22,4 +24,7 @@ code {
 #root {
     display: flex;
     flex-direction: column;
+    color: white;
+    background-color: #ddd;
+    min-height: 100vh;
 }

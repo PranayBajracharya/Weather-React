@@ -5,7 +5,7 @@ import Day from "./Day/Day.js";
 import { convertTemp } from "../../utilis/convertTemp.js";
 
 const Week = (props) => {
-  const { temprature } = props;
+  const { temperature } = props;
   const weekData = props.weeklyDetails.map((data, index) => {
     const date = new Date();
     date.setDate(date.getDate() + index);

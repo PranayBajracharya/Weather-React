@@ -1,8 +1,11 @@
 .week {
-    width: 60%;
+    width: 40%;
+    max-width: 700px;
 }
 
 .week h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
@@ -11,9 +14,9 @@ ul {
     line-height: 2rem;
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 1000px) {
     .week {
-        width: 80%;
+        width: 70%;
     }
 }
 @media screen and (max-width: 600px) {

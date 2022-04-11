@@ -1,5 +1,5 @@
 .header {
-    background-color: #282c34;
+    background-color: var(--primary-color);
     height: 80px;
     display: flex;
     justify-content: space-around;
@@ -8,6 +8,7 @@
 
 .header h1 {
     font-size: 3rem;
+    font-weight: bold;
     margin-left: 5rem;
 }
 
@@ -20,6 +21,7 @@
     width: 50px;
     height: 50px;
     text-align: center;
+    color: var(--primary-color);
 }
 
 @media screen and (max-width: 860px) {

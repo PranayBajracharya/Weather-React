@@ -25,7 +25,7 @@ const Main = (props) => {
             <Card>
                 <SelectCity city={props.city} setCity={props.setCity} />
             </Card>
-            <Card className={classes.main}>
+            <Card>
                 <div className={classes.date}>
                     {currentData.date}
                 </div>
