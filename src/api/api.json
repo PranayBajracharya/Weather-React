@@ -1,8 +1,8 @@
 {
     "Kathmandu": "https://api.openweathermap.org/data/2.5/onecall?exclude=alerts,minutely&lat=27.7172&lon=85.3240&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36",
-    "Pokhara": "https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,alerts,minutely&lat=28.2096&lon=83.9856&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36",
-    "Butwal": "https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,alerts,minutely&lat=27.6866&lon=83.4323&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36",
-    "Biratnagar": "https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,alerts,minutely&lat=26.4525&lon=87.2718&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36",
-    "Dhangadhi": "https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,alerts,minutely&lat=28.6852&lon=80.6216&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36",
-    "Hetauda": "https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,alerts,minutely&lat=27.4368&lon=85.0026&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36"
+    "Pokhara": "https://api.openweathermap.org/data/2.5/onecall?exclude=alerts,minutely&lat=28.2096&lon=83.9856&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36",
+    "Butwal": "https://api.openweathermap.org/data/2.5/onecall?exclude=alerts,minutely&lat=27.6866&lon=83.4323&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36",
+    "Biratnagar": "https://api.openweathermap.org/data/2.5/onecall?exclude=alerts,minutely&lat=26.4525&lon=87.2718&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36",
+    "Dhangadhi": "https://api.openweathermap.org/data/2.5/onecall?exclude=alerts,minutely&lat=28.6852&lon=80.6216&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36",
+    "Hetauda": "https://api.openweathermap.org/data/2.5/onecall?exclude=alerts,minutely&lat=27.4368&lon=85.0026&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36"
 }

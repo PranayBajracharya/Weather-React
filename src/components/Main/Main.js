@@ -2,23 +2,12 @@ import classes from "./Main.module.css";
 import Card from "../UI/Card.js";
 import SelectCity from "../SelectCity/SelectCity.js";
 
-import convert from "../../utilis/convertTemp.js";
 import weatherIcon from "../../utilis/weatherIcon.js";
 
 const Main = (props) => {
     const date = new Date();
-    let currentData = {
-        date: date.toLocaleString(),
-        temperature: `${Math.round(props.weatherData.temp - 273.15)}`,
-        dewPoint: `${Math.round(props.weatherData.dew_point - 273.15)}`,
-        humidity: `${Math.round(props.weatherData.humidity)}%`,
-        visibility: `${props.weatherData.visibility/1000}km`,
-        icon: weatherIcon(props.weatherData.weather[0].main),
-    }
-
-    if(props.temperatureType === "F") {
-        currentData = convert(currentData);
-    }
+    const { currentData } = props;
+    const icon = weatherIcon(currentData.weather[0].main);
 
     return (
         <div>
@@ -27,20 +16,20 @@ const Main = (props) => {
             </Card>
             <Card>
                 <div className={classes.date}>
-                    {currentData.date}
+                    {date.toLocaleString()}
                 </div>
                 <h2 className={classes.city}>{props.city}, Nepal</h2>
                 <h2 className={classes.temperature}>
-                    {currentData.icon}
-                    <span>{`${currentData.temperature}°${props.temperatureType}`}</span>
+                    {icon}
+                    <span>{`${currentData.temp}°${props.temperatureType}`}</span>
                 </h2>
                 <div className={classes.details}>
-                    <span>Humidity: {currentData.humidity}</span>
+                    <span>Humidity: {currentData.humidity}%</span>
                     <span>
                         Dew point:
-                        {` ${currentData.dewPoint}°${props.temperatureType}`}
+                        {` ${currentData.dew_point}°${props.temperatureType}`}
                     </span>
-                    <span>Visibility: {currentData.visibility}</span>
+                    <span>Visibility: {currentData.visibility}km</span>
                 </div>
             </Card>
         </div>

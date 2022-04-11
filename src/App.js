@@ -6,6 +6,7 @@ import Header from "./components/Header/Header.js";
 import Main from "./components/Main/Main.js";
 import Week from "./components/Week/Week.js";
 
+import convert from "./utilis/convertTemp";
 import api from "./api/api.json";
 import { Box, Button, Center, Spinner, Stack, Tag, Flex } from "@chakra-ui/react";
 
@@ -22,7 +23,6 @@ function App() {
                 setIsLoading(true);
                 let response = await fetch(api[city]);
                 response = await response.json();
-                console.log(response)
                 setWeatherData(response);
             } catch (error) {
                 setError(true);
@@ -35,17 +35,34 @@ function App() {
     let mainContent = <h2 className={classes.loading}>GG!! :(</h2>;
 
     if (weatherData !== null) {
+        const { current, daily } = weatherData;
+        const currentData = convert(current, temperatureType);
+
+        console.log("asda", daily)
+        const weekData = daily.map((dailyData, index) => {
+            // console.log(temperatureType, weatherData)
+            // console.log(dailyData, index);
+            const date = new Date();
+            date.setDate(date.getDate() + index);
+
+            // const convertedDailyData = convert(dailyData, temperatureType);
+            // convertedDailyData.date = date.toString().substring(0, 10);
+            // console.log(weatherData.daily)
+            // return convertedDailyData;
+            return dailyData;
+        })
+        
         mainContent = (
             <Flex justify="center">
                 <Main
                     temperatureType={temperatureType}
-                    weatherData={weatherData.current}
+                    currentData={currentData}
                     city={city}
                     setCity={setCity}
                 />
                 <Week
                     temperatureType={temperatureType}
-                    weeklyDetails={weatherData.daily}
+                    weeklyData={weatherData.daily}
                 />
             </Flex>
         );

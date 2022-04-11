@@ -17,19 +17,6 @@ const weatherIcon = (desc) => {
   };
 
   let displayIcon = icon[desc] ?? <TiWeatherPartlySunny />;
-  // if(desc === "Rain") {
-  //     icon = <TiWeatherShower />;
-  // } else if(desc === "Clear") {
-  //     icon = <TiWeatherSunny />;
-  // } else if(desc === "Haze") {
-  //     icon = <BsCloudHaze1 />;
-  // } else if(desc === "Clouds") {
-  //     icon = <TiWeatherCloudy />;
-  // } else if(desc === "Stormy") {
-  //     icon = <TiWeatherStormy />;
-  // } else {
-  //     icon = <TiWeatherPartlySunny />
-  // }
   return displayIcon;
 };
 
