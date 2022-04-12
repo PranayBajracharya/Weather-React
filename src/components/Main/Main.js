@@ -26,10 +26,10 @@ const Main = (props) => {
                 <div className={classes.details}>
                     <span>Humidity: {currentData.humidity}%</span>
                     <span>
-                        Dew point:
+                        Dew Point:
                         {` ${currentData.dew_point}°${props.temperatureType}`}
                     </span>
-                    <span>Visibility: {currentData.visibility}km</span>
+                    <span>Visibility: {currentData.visibility/1000}km</span>
                 </div>
             </Card>
         </div>

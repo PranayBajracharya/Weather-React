@@ -5,10 +5,11 @@ import classes from "./App.module.css";
 import Header from "./components/Header/Header.js";
 import Main from "./components/Main/Main.js";
 import Week from "./components/Week/Week.js";
+import HourlySection from "./components/HourlySection/HourlySection.js";
 
 import convert from "./utilis/convertTemp";
 import api from "./api/api.json";
-import { Box, Button, Center, Spinner, Stack, Tag, Flex } from "@chakra-ui/react";
+import { Center, Spinner, Stack, Flex } from "@chakra-ui/react";
 
 function App() {
     const [temperatureType, setTemperatureType] = useState("C");
@@ -35,31 +36,55 @@ function App() {
     let mainContent = <h2 className={classes.loading}>GG!! :(</h2>;
 
     if (weatherData !== null) {
-        const { current, daily } = weatherData;
+        const { current, daily, hourly } = weatherData;
         const currentData = convert(current, temperatureType);
 
         const weekData = daily.map((dailyData, index) => {
             const date = new Date();
             date.setDate(date.getDate() + index);
-            
+
             const convertedDailyData = convert(dailyData, temperatureType);
             convertedDailyData.date = date.toString().substring(0, 10);
             return convertedDailyData;
-        })
-        
+        });
+
+        const hourlyData = hourly.map((hourData) => {
+            console.log(hourData);
+            //Temp conversion
+            const convertedHourData = convert(hourData, temperatureType);
+
+            //Unix time to Date object
+            const unix_timestamp = hourData.dt;
+            const date = new Date(unix_timestamp * 1000);
+
+            //Formatting date
+            const time = date.toLocaleString();
+            const [formattedDate, formattedTime] = time.split(", ");
+
+            convertedHourData.date = formattedDate;
+            convertedHourData.time = formattedTime;
+            return convertedHourData;
+        });
+
         mainContent = (
-            <Flex justify="center">
-                <Main
+            <Stack className={classes.main}>
+                <Flex justify="center">
+                    <Main
+                        temperatureType={temperatureType}
+                        currentData={currentData}
+                        city={city}
+                        setCity={setCity}
+                    />
+                    <Week
+                        temperatureType={temperatureType}
+                        weekData={weekData}
+                    />
+                </Flex>
+                <HourlySection
                     temperatureType={temperatureType}
-                    currentData={currentData}
-                    city={city}
-                    setCity={setCity}
+                    hourlyData={hourlyData}
                 />
-                <Week
-                    temperatureType={temperatureType}
-                    weekData={weekData}
-                />
-            </Flex>
+            </Stack>
         );
     } else if (error) {
         mainContent = (
@@ -68,7 +93,13 @@ function App() {
     } else if (isLoading) {
         mainContent = (
             <Center>
-                <Spinner color="#282c34" my={3} size='xl' thickness='4px' speed='0.2s'/>
+                <Spinner
+                    color="#282c34"
+                    my={3}
+                    size="xl"
+                    thickness="4px"
+                    speed="0.2s"
+                />
             </Center>
         );
     }

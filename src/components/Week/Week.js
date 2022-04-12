@@ -15,7 +15,7 @@ const Week = (props) => {
 
     return (
         <Card className={classes.week}>
-            <h2>8-day forecast</h2>
+            <h2>8-Day Forecast</h2>
             <ul>{weekDataList}</ul>
         </Card>
     );
