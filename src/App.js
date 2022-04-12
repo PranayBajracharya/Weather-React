@@ -52,7 +52,6 @@ function App() {
         });
 
         const hourlyData = hourly.map((hourData) => {
-            console.log(hourData);
             //Temp conversion
             const convertedHourData = convert(hourData, temperatureType);
 

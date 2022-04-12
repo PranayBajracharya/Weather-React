@@ -8,7 +8,7 @@ const theme = extendTheme({
         secondary: {
             default: '#eee'
         }
-    }
+    },
 });
 
 export default theme;

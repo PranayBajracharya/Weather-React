@@ -12,7 +12,12 @@ const Header = (props) => {
     };
 
     return (
-        <Flex justify="space-around" bg="primary.default" alignItems="center" h="80px">
+        <Flex
+            justify="space-around"
+            bg="primary.default"
+            alignItems="center"
+            h="80px"
+        >
             <Heading as="h1" size="3xl">
                 Weather React
             </Heading>
