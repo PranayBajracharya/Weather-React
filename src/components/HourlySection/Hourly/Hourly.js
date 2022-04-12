@@ -1,5 +1,4 @@
 import Card from "../../UI/Card.js";
-// import classes from "./Hourly.module.css";
 import weatherIcon from "../../../utilis/weatherIcon.js";
 
 import { Flex, Heading, Text } from "@chakra-ui/react";

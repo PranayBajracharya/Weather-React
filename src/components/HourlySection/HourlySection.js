@@ -1,4 +1,3 @@
-// import classes from "./HourlySection.module.css";
 import Hourly from "./Hourly/Hourly.js";
 import { HStack, VStack, Heading } from "@chakra-ui/react";
 
