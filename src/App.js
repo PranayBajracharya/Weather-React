@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 
-import classes from "./App.module.css";
+// import classes from "./App.module.css";
 
 import Header from "./components/Header/Header.js";
 import Main from "./components/Main/Main.js";
@@ -9,7 +9,7 @@ import HourlySection from "./components/HourlySection/HourlySection.js";
 
 import convert from "./utilis/convertTemp";
 import api from "./api/api.json";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Heading } from "@chakra-ui/react";
 import theme from './theme';
 
 import { Center, Spinner, Stack, Flex } from "@chakra-ui/react";
@@ -36,7 +36,7 @@ function App() {
         weatherDataFunc();
     }, [city]);
 
-    let mainContent = <h2 className={classes.loading}>GG!! :(</h2>;
+    let mainContent = <Heading align="center" mt={5} color="primary.default">GG!! :(</Heading>;
 
     if (weatherData !== null) {
         const { current, daily, hourly } = weatherData;
@@ -69,8 +69,8 @@ function App() {
         });
 
         mainContent = (
-            <Stack className={classes.main}>
-                <Flex justify="center">
+            <Stack w="1200px" maxW="95%" alignSelf="center" mt={4}>
+                <Flex direction={{ base: "column", md: "row" }} justify="center">
                     <Main
                         temperatureType={temperatureType}
                         currentData={currentData}
@@ -90,7 +90,7 @@ function App() {
         );
     } else if (error) {
         mainContent = (
-            <h2 className={classes.loading}>Something went wrong!! :(</h2>
+            <Heading align="center" mt={5} color="primary.default">Something went wrong!! :(</Heading>
         );
     } else if (isLoading) {
         mainContent = (

@@ -1,22 +1,21 @@
-import classes from "./Day.module.css";
-
 import weatherIcon from "../../../utilis/weatherIcon.js";
+import { Flex, Text, Heading, ListItem } from "@chakra-ui/react";
 
 const Day = (props) => {
     const { dayData, temperatureType } = props;
     const icon = weatherIcon(dayData.weather[0].main);
 
     return (
-        <li>
-            <div className={classes.date}>{dayData.date}</div>
-            <div className={classes.details}>
-                <div className={classes.temperature}>
+        <ListItem display="flex" justifyContent="space-between" height="40px" alignItems="center">
+            <Text>{dayData.date}</Text>
+            <Flex>
+                <Text display="flex" alignItems="center" fontSize="1.4rem">
                     {icon}
-                    <span>{`${dayData.temp.max} / ${dayData.temp.min} °${temperatureType}`}</span>
-                </div>
-                <div className={classes.description}>{dayData.weather[0].description}</div>
-            </div>
-        </li>
+                    <Text ml={2}>{`${dayData.temp.max} / ${dayData.temp.min} °${temperatureType}`}</Text>
+                </Text>
+                <Text w="120px" fontSize="0.8rem" textAlign="right" alignSelf="center">{dayData.weather[0].description}</Text>
+            </Flex>
+        </ListItem>
     );
 };
 
