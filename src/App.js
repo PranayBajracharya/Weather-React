@@ -9,6 +9,9 @@ import HourlySection from "./components/HourlySection/HourlySection.js";
 
 import convert from "./utilis/convertTemp";
 import api from "./api/api.json";
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from './theme';
+
 import { Center, Spinner, Stack, Flex } from "@chakra-ui/react";
 
 function App() {
@@ -105,13 +108,13 @@ function App() {
     }
 
     return (
-        <Fragment>
+        <ChakraProvider theme={theme}>
             <Header
                 temperatureType={temperatureType}
                 setTemperatureType={setTemperatureType}
             />
             {mainContent}
-        </Fragment>
+        </ChakraProvider>
     );
 }
 

@@ -1,4 +1,4 @@
-import classes from "./Header.module.css";
+import { Flex, Heading, Button } from "@chakra-ui/react";
 
 const Header = (props) => {
     let changedTemperatureType;
@@ -12,12 +12,22 @@ const Header = (props) => {
     };
 
     return (
-        <header className={classes.header}>
-            <h1>Weather React</h1>
-            <button onClick={temperatureTypeHandler}>
+        <Flex justify="space-around" bg="primary.default" alignItems="center" h="80px">
+            <Heading as="h1" size="3xl">
+                Weather React
+            </Heading>
+            <Button
+                color="primary.default"
+                bg="secondary.default"
+                borderRadius="50%"
+                w="50px"
+                h="50px"
+                fontSize="1.6rem"
+                onClick={temperatureTypeHandler}
+            >
                 °{props.temperatureType}
-            </button>
-        </header>
+            </Button>
+        </Flex>
     );
 };
 
