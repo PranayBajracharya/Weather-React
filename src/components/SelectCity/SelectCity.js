@@ -9,6 +9,7 @@ const SelectCity = (props) => {
 
     return (
         <Select
+            h="auto"
             border="none"
             focusBorderColor="inherit"
             fontSize="xl"
