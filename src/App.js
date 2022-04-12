@@ -1,6 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
-
-// import classes from "./App.module.css";
+import { useState, useEffect } from "react";
 
 import Header from "./components/Header/Header.js";
 import Main from "./components/Main/Main.js";
@@ -9,10 +7,10 @@ import HourlySection from "./components/HourlySection/HourlySection.js";
 
 import convert from "./utilis/convertTemp";
 import api from "./api/api.json";
-import { ChakraProvider, Heading } from "@chakra-ui/react";
-import theme from './theme';
 
+import { ChakraProvider, Heading } from "@chakra-ui/react";
 import { Center, Spinner, Stack, Flex } from "@chakra-ui/react";
+import theme from "./theme";
 
 function App() {
     const [temperatureType, setTemperatureType] = useState("C");
@@ -36,7 +34,11 @@ function App() {
         weatherDataFunc();
     }, [city]);
 
-    let mainContent = <Heading align="center" mt={5} color="primary.default">GG!! :(</Heading>;
+    let mainContent = (
+        <Heading align="center" mt={5} color="primary.default">
+            GG!! :(
+        </Heading>
+    );
 
     if (weatherData !== null) {
         const { current, daily, hourly } = weatherData;
@@ -70,7 +72,10 @@ function App() {
 
         mainContent = (
             <Stack w="1200px" maxW="95%" alignSelf="center" mt={4}>
-                <Flex direction={{ base: "column", md: "row" }} justify="center">
+                <Flex
+                    direction={{ base: "column", md: "row" }}
+                    justify="center"
+                >
                     <Main
                         temperatureType={temperatureType}
                         currentData={currentData}
@@ -90,14 +95,16 @@ function App() {
         );
     } else if (error) {
         mainContent = (
-            <Heading align="center" mt={5} color="primary.default">Something went wrong!! :(</Heading>
+            <Heading align="center" mt={5} color="primary.default">
+                Something went wrong!! :(
+            </Heading>
         );
     } else if (isLoading) {
         mainContent = (
             <Center>
                 <Spinner
                     color="#282c34"
-                    my={3}
+                    mt={6}
                     size="xl"
                     thickness="4px"
                     speed="0.2s"

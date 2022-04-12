@@ -17,7 +17,7 @@ const Week = (props) => {
     return (
         <Card>
             <Flex direction="column" w={{ base: "auto", md: "60vw" }} maxW="700px">
-                <Heading size="lg" mb={1}>8-Day Forecast</Heading>
+                <Heading size="lg" mb={2}>8-Day Forecast</Heading>
                 <UnorderedList m={0} styleType="none">{weekDataList}</UnorderedList>
             </Flex>
         </Card>
