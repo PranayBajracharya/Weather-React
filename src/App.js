@@ -6,16 +6,22 @@ import Week from "./components/Week/Week.js";
 import HourlySection from "./components/HourlySection/HourlySection.js";
 
 import convert from "./utilis/convertTemp";
-import api from "./api/api.json";
 
 import { ChakraProvider, Heading } from "@chakra-ui/react";
 import { Center, Spinner, Stack, Flex } from "@chakra-ui/react";
 import theme from "./theme";
 
+document.addEventListener("click", (event) => {
+    if (!event.target.matches('.dropdown')) {
+        document.getElementById('searchResults').style.display = "none";
+    }
+});
+
+
 function App() {
     const [temperatureType, setTemperatureType] = useState("C");
     const [weatherData, setWeatherData] = useState(null);
-    const [city, setCity] = useState("Kathmandu");
+    const [city, setCity] = useState({lat: 27.708317, lon: 85.3205817, name: "Kathmandu", country: "NP"});
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -23,7 +29,7 @@ function App() {
         const weatherDataFunc = async () => {
             try {
                 setIsLoading(true);
-                let response = await fetch(api[city]);
+                let response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?exclude=alerts,minutely&lat=${city.lat}&lon=${city.lon}&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36`);
                 response = await response.json();
                 setWeatherData(response);
             } catch (error) {

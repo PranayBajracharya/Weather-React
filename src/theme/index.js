@@ -37,6 +37,13 @@ const theme = extendTheme({
                     }
                 },
             }
+        },
+        UnorderedList: {
+            variants: {
+                search: {
+                    backgroundColor: 'red',
+                }
+            }
         }
     }
 });
