@@ -1,4 +1,4 @@
-import { Flex, Heading, Button } from "@chakra-ui/react";
+import { Flex, Heading, Switch } from "@chakra-ui/react";
 
 const Header = (props) => {
     let changedTemperatureType;
@@ -21,17 +21,11 @@ const Header = (props) => {
             <Heading as="h1" size="3xl">
                 Weather React
             </Heading>
-            <Button
-                color="primary.default"
-                bg="secondary.default"
-                borderRadius="50%"
-                w="50px"
-                h="50px"
-                fontSize="1.6rem"
-                onClick={temperatureTypeHandler}
-            >
-                °{props.temperatureType}
-            </Button>
+            <Flex justify="space-between" alignItems="center" width="200px" fontWeight="bold">
+                Celcius
+                <Switch colorScheme="primary.default" size="lg" onChange={temperatureTypeHandler} />
+                Ferenheit
+            </Flex>
         </Flex>
     );
 };

@@ -3,7 +3,7 @@ import SelectCity from "../SelectCity/SelectCity.js";
 
 import weatherIcon from "../../utilis/weatherIcon.js";
 
-import { Flex, Text, Heading, SimpleGrid, GridItem } from "@chakra-ui/react";
+import { Flex, Input, Text, Heading, SimpleGrid, GridItem } from "@chakra-ui/react";
 
 const Main = (props) => {
     const date = new Date();
@@ -13,6 +13,7 @@ const Main = (props) => {
     return (
         <Flex direction="column">
             <Card>
+                {/* <Input type="search" ></Input> */}
                 <SelectCity city={props.city} setCity={props.setCity} />
             </Card>
             <Card>

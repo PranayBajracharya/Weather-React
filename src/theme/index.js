@@ -9,6 +9,36 @@ const theme = extendTheme({
             default: '#eee'
         }
     },
+    components: {
+        Button: {
+            variants: {
+                solid: {
+                    backgroundColor: '#282c34',
+                    _hover: {
+                        backgroundColor: '#121417',
+                    },
+                    _active: {
+                        backgroundColor: '#121417',
+                    },
+                    _focus: {
+                        backgroundColor: '#121417',
+                    }
+                },
+                active: {
+                    backgroundColor: '#121417',
+                    _hover: {
+                        backgroundColor: '#121417',
+                    },
+                    _active: {
+                        backgroundColor: '#121417',
+                    },
+                    _focus: {
+                        backgroundColor: '#121417',
+                    }
+                },
+            }
+        }
+    }
 });
 
 export default theme;
