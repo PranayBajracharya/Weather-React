@@ -17,7 +17,6 @@ document.addEventListener("click", (event) => {
     }
 });
 
-
 function App() {
     const [temperatureType, setTemperatureType] = useState("C");
     const [weatherData, setWeatherData] = useState(null);
@@ -32,6 +31,7 @@ function App() {
                 let response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?exclude=alerts,minutely&lat=${city.lat}&lon=${city.lon}&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36`);
                 response = await response.json();
                 setWeatherData(response);
+                setError(false);
             } catch (error) {
                 setError(true);
             }
@@ -42,7 +42,7 @@ function App() {
 
     let mainContent = (
         <Heading align="center" mt={5} color="primary.default">
-            GG!! :(
+            GG!! Bruh :(
         </Heading>
     );
 
