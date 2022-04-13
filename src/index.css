@@ -28,3 +28,13 @@ code {
     background-color: #ddd;
     min-height: 100vh;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #bbb;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    /* border-radius: 10px; */
+}

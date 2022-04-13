@@ -16,16 +16,11 @@ const HourlySection = (props) => {
                 48-Hour Forecast{" "}
             </Heading>
             <HStack spacing="20px" w="100%" overflowX="auto" css={{
-                "&::-webkit-scrollbar": {
-                    marginTop: '20px',
-                    width: '10px',
-                },                
-                "&::-webkit-scrollbar-track": {
-                    background: '#bbb',
+                '&::-webkit-scrollbar': {
+                    height: '10px',
                     borderRadius: '10px',
-                },                
+                },                  
                 "&::-webkit-scrollbar-thumb": {
-                    background: '#282c34',
                     borderRadius: '10px',
                 }
             }}>
