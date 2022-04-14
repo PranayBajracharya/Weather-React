@@ -17,6 +17,7 @@ const SelectCity = (props) => {
 
     const searchValueHandler = (event) => {
         setSearchValue(event.target.value);
+        setError(false);
     };
 
     const searchCityHandler = async () => {
@@ -52,6 +53,7 @@ const SelectCity = (props) => {
         });
     }
 
+
     return (
         <Flex direction="column" position="relative">
             <FormControl display="flex">
@@ -83,13 +85,7 @@ const SelectCity = (props) => {
                         {options}
                     </UnorderedList>
                 )}
-                {cityOptions.length === 0 && (
-                    <UnorderedList
-                        id="searchResults"
-                        display="none"
-                    ></UnorderedList>
-                )}
-                <Button className="dropdown" ml={2} onClick={searchCityHandler}>
+                <Button className="" ml={2} onClick={searchCityHandler}>
                     Search
                 </Button>
             </FormControl>

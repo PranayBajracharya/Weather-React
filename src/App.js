@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ChakraProvider, Heading, Center, Spinner, Stack, Flex } from "@chakra-ui/react";
 
 import Header from "./components/Header/Header.js";
 import Main from "./components/Main/Main.js";
@@ -7,13 +8,14 @@ import HourlySection from "./components/HourlySection/HourlySection.js";
 
 import convert from "./utilis/convertTemp";
 
-import { ChakraProvider, Heading } from "@chakra-ui/react";
-import { Center, Spinner, Stack, Flex } from "@chakra-ui/react";
 import theme from "./theme";
 
 document.addEventListener("click", (event) => {
     if (!event.target.matches('.dropdown')) {
-        document.getElementById('searchResults').style.display = "none";
+        const dropdown = document.getElementById('searchResults');
+        if(dropdown) {
+            dropdown.style.display = "none";
+        }
     }
 });
 
