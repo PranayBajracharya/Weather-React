@@ -20,11 +20,12 @@ const SelectCity = (props) => {
         setError(false);
     };
 
-    const searchCityHandler = async () => {
+    const searchCityHandler = async (event) => {
+        event.preventDefault();
+        if (searchValue.trim() === "") {
+            return;
+        }
         try {
-            if (searchValue.trim() === "") {
-                return;
-            }
             let cities = await fetch(
                 `http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=5&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36`
             );
@@ -56,39 +57,41 @@ const SelectCity = (props) => {
 
     return (
         <Flex direction="column" position="relative">
-            <FormControl display="flex">
-                <Input
-                    type="search"
-                    className="dropdown"
-                    value={searchValue}
-                    onChange={searchValueHandler}
-                    css={{
-                        position: "relative",
-                    }}
-                />
-                {cityOptions.length > 0 && (
-                    <UnorderedList
-                        id="searchResults"
-                        variant="search"
+            <form onSubmit={searchCityHandler}>
+                <FormControl display="flex">
+                    <Input
+                        type="search"
+                        className="dropdown"
+                        value={searchValue}
+                        onChange={searchValueHandler}
                         css={{
-                            position: "absolute",
-                            backgroundColor: "rgba(40, 44, 52, 90%)",
-                            zIndex: "5",
-                            listStyle: "none",
-                            width: "100%",
-                            top: "100%",
-                            margin: "0",
-                            padding: "10px 0",
-                            lineHeight: "2rem",
+                            position: "relative",
                         }}
-                    >
-                        {options}
-                    </UnorderedList>
-                )}
-                <Button className="" ml={2} onClick={searchCityHandler}>
-                    Search
-                </Button>
-            </FormControl>
+                    />
+                    {cityOptions.length > 0 && (
+                        <UnorderedList
+                            id="searchResults"
+                            variant="search"
+                            css={{
+                                position: "absolute",
+                                backgroundColor: "rgba(40, 44, 52, 90%)",
+                                zIndex: "5",
+                                listStyle: "none",
+                                width: "100%",
+                                top: "100%",
+                                margin: "0",
+                                padding: "10px 0",
+                                lineHeight: "2rem",
+                            }}
+                        >
+                            {options}
+                        </UnorderedList>
+                    )}
+                    <Button type="submit" ml={2}>
+                        Search
+                    </Button>
+                </FormControl>
+            </form>
             {error && (
                 <Text
                     position="absolute"
