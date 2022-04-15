@@ -40,8 +40,6 @@ const SelectCity = (props) => {
                         signal: controller.current.signal,
                     }
                 );
-                console.log(cities);
-    
                 cities = await cities.json();
                 setCityOptions(cities);
                 document.getElementById("searchResults").style.display = "block";

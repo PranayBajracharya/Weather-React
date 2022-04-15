@@ -70,7 +70,7 @@ function App() {
             const date = new Date(unix_timestamp * 1000);
 
             //Formatting date
-            const time = date.toLocaleString();
+            const time = date.toLocaleTimeString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'});
             const [formattedDate, formattedTime] = time.split(", ");
 
             convertedHourData.date = formattedDate;
