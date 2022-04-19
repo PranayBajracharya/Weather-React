@@ -34,9 +34,8 @@ const SelectCity = (props) => {
                 controller.current = new AbortController();
     
                 let cities = await fetch(
-                    `http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=5&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36`,
+                    `https://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=5&appid=3d4fe1331b4eeb7f11a9e53fa3b7fa36`,
                     {
-                        method: "GET",
                         signal: controller.current.signal,
                     }
                 );
